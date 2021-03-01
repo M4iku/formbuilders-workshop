@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'formbuilders-workshop';
+  formData: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.formData = this.fb.group({
+      rut: [''],
+      edad: [0],
+      vivo: [false]
+    });
+  }
 }
