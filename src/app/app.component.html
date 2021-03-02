@@ -1,6 +1,17 @@
 <div [formGroup]="formData">
   <input type="text" formControlName="rut"><br>
   <input type="number" formControlName="edad"><br>
+  <div *ngIf="formData.get('edad').invalid">
+    <span>{{formData.get('edad').errors?.msj}}</span>
+  </div>
+
+
   <input type="checkbox" value="test">
 </div>
+
+{{formData.get('edad').errors?.msj || 'Todo ok'}}
+
+
+<br>
+
 <input type="button" value="PAGAR" [disabled]="formData.invalid">
